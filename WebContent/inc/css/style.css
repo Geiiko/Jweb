@@ -1,0 +1,14 @@
+body
+{
+	padding-top : 70px;
+}
+
+form .succes
+{
+    color: #339900;
+}
+
+form .erreur
+{
+    color: #C00;
+}

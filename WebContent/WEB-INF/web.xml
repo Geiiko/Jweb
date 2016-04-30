@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+<welcome-file-list>
+<welcome-file>Home</welcome-file>
+</welcome-file-list>
+  <servlet>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>com.jweb.servlets.HomeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FormServlet</servlet-name>
+    <servlet-class>com.jweb.servlets.FormServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConnServlet</servlet-name>
+    <servlet-class>com.jweb.servlets.ConnServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DecoServlet</servlet-name>
+    <servlet-class>com.jweb.servlets.DecoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RestreintServlet</servlet-name>
+    <servlet-class>com.jweb.servlets.RestreintServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/Home</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FormServlet</servlet-name>
+    <url-pattern>/Form</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConnServlet</servlet-name>
+    <url-pattern>/Connexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DecoServlet</servlet-name>
+    <url-pattern>/Deconnexion</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RestreintServlet</servlet-name>
+    <url-pattern>/Restreint</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>Set Character Encoding</filter-name>
+    <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ignore</param-name>
+      <param-value>false</param-value>
+    </init-param>
+  </filter>
+  <filter>
+    <filter-name>RestrictFilter</filter-name>
+    <filter-class>com.jweb.filters.RestrictFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>Set Character Encoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>RestrictFilter</filter-name>
+    <url-pattern>/restreint/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.jweb.config.InitialisationDaoFactory</listener-class>
+  </listener>
+</web-app>
